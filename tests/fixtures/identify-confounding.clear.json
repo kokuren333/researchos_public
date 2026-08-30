@@ -1,0 +1,1 @@
+{"research_question":"Does exercise reduce blood pressure?","exposure":"exercise","outcome":"blood pressure","candidate_variables":["age"],"study_context":"Age precedes exercise and blood pressure, and is associated with both.","expected":{"age":"likely-confounder"}}

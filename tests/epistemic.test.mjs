@@ -127,7 +127,16 @@ test("skill taxonomy and maturity cover the representative MVP set", async () =>
 
 test("identify-confounding execution contract passes a valid fixture", async () => {
   const result = await exec(process.execPath, ["scripts/validate-skill-execution.mjs"]);
-  assert.match(result.stdout, /valid fixture passed/);
+  assert.match(result.stdout, /audit fixtures passed/);
   const contract = await readFile(new URL("../skills/identify-confounding/execution.yaml", import.meta.url), "utf8");
   for (const field of ["research_question", "candidate_variables", "missing_information", "assumptions", "overall_assessment", "unknown"]) assert.match(contract, new RegExp(field));
+});
+
+test("identify-confounding audit fixtures cover clear, ambiguous, and insufficient cases", async () => {
+  const result = await exec(process.execPath, ["scripts/validate-skill-execution.mjs"]);
+  assert.match(result.stdout, /audit fixtures passed/);
+  for (const name of ["clear", "ambiguous", "insufficient"]) {
+    const fixture = JSON.parse(await readFile(new URL(`../tests/fixtures/identify-confounding.${name}.json`, import.meta.url), "utf8"));
+    assert.ok(fixture.study_context);
+  }
 });

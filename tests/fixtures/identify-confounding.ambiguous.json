@@ -1,0 +1,1 @@
+{"research_question":"Does treatment improve recovery?","exposure":"treatment","outcome":"recovery","candidate_variables":["early-response"],"study_context":"Early response occurs after treatment and may affect later recovery; temporal and causal details are incomplete.","expected":{"early-response":"unknown"}}
