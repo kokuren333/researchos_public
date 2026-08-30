@@ -1,0 +1,16 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"Research OS Skill",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["id","type","version","title","purpose","requires","inputs","steps","checks","outputs"],
+  "properties":{
+    "id":{"type":"string","pattern":"^[a-z][a-z0-9-]*$"},
+    "type":{"const":"skill"},"version":{"type":"string"},"title":{"type":"string","minLength":1},"purpose":{"type":"string","minLength":1},
+    "requires":{"type":"object","required":["concepts"],"properties":{"concepts":{"type":"array","items":{"type":"string","pattern":"^[a-z][a-z0-9-]*\\.[a-z][a-z0-9-]*$"}}}},
+    "inputs":{"type":"object","required":["required"],"properties":{"required":{"type":"array","items":{"type":"string"}},"optional":{"type":"array","items":{"type":"string"}}}},
+    "steps":{"type":"array","minItems":1,"items":{"type":"object","required":["id","action"],"properties":{"id":{"type":"string"},"action":{"type":"string"}}}},
+    "checks":{"type":"array","minItems":1,"items":{"type":"object","required":["id","rule"],"properties":{"id":{"type":"string"},"rule":{"type":"string"}}}},
+    "outputs":{"type":"object","required":["primary","sections"],"properties":{"primary":{"type":"object","required":["type","filename"]},"sections":{"type":"array","items":{"type":"string"}}}}
+  }
+}

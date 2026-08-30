@@ -67,3 +67,24 @@ test("concept pages expose depth beyond a dictionary definition", async () => {
     for (const heading of ["直感", "なぜ重要か", "何を説明できるか", "典型例", "主要な誤解", "前提概念", "根拠となる資料"]) assert.match(page, new RegExp(heading));
   }
 });
+
+test("priority concepts are FIELD_VIEW_READY with locator-backed records", async () => {
+  const stats = JSON.parse(await readFile(new URL("../domains/statistics/concepts/field-view-ready.json", import.meta.url), "utf8"));
+  const physics = JSON.parse(await readFile(new URL("../domains/physics/concepts/field-view-ready.json", import.meta.url), "utf8"));
+  assert.equal(stats.priority.length, 10);
+  assert.equal(physics.priority.length, 10);
+  for (const record of [...Object.values(stats.content), ...Object.values(physics.content)]) {
+    for (const key of ["intuitive", "epistemic", "example", "limitation", "source", "locator"]) assert.ok(record[key]);
+  }
+});
+
+test("skill metadata resolves a many-to-many Concept graph", async () => {
+  await exec(process.execPath, ["scripts/build-public.mjs"]);
+  const skill = JSON.parse(await readFile(new URL("../skills/critically-appraise-paper/skill.yaml", import.meta.url), "utf8"));
+  const graph = JSON.parse(await readFile(new URL("../dist/generated/concept-skill-graph.json", import.meta.url), "utf8"));
+  assert.equal(skill.type, "skill");
+  assert.ok(skill.purpose && skill.inputs && skill.steps.length && skill.checks.length && skill.outputs);
+  assert.equal(graph.skill_to_concepts[skill.id].length, 5);
+  for (const concept of skill.requires.concepts) assert.deepEqual(graph.concept_to_skills[concept], [skill.id]);
+  assert.match(await readFile(new URL("../dist/skills/critically-appraise-paper/index.html", import.meta.url), "utf8"), /研究論文を批判的に評価する/);
+});
