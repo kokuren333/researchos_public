@@ -154,3 +154,12 @@ test("choose-statistical-model returns a conditional structured decision", async
   const contract = await readFile(new URL("../skills/choose-statistical-model/execution.yaml", import.meta.url), "utf8");
   for (const field of ["recommended_model", "alternatives", "assumptions", "diagnostics", "missing_information", "decision_status"]) assert.match(contract, new RegExp(field));
 });
+
+test("workflow contract preserves ordered steps and output mappings", async () => {
+  const result = await exec(process.execPath, ["scripts/validate-workflow.mjs"]);
+  assert.match(result.stdout, /workflow passed/);
+  const workflow = JSON.parse(await readFile(new URL("../workflows/appraise-observational-study/workflow.yaml", import.meta.url), "utf8"));
+  assert.deepEqual(workflow.steps.map(step => step.skill), ["assess-measurement-validity", "identify-confounding", "choose-statistical-model"]);
+  assert.equal(workflow.steps[2].inputs.measurement_information, "measurement.output");
+  assert.ok(workflow.final_artifact.filename);
+});
