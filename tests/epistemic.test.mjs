@@ -163,3 +163,11 @@ test("workflow contract preserves ordered steps and output mappings", async () =
   assert.equal(workflow.steps[2].inputs.measurement_information, "measurement.output");
   assert.ok(workflow.final_artifact.filename);
 });
+
+test("workflow runtime resolves fixture inputs and stores step outputs", async () => {
+  const result = await exec(process.execPath, ["scripts/run-workflow.mjs"]);
+  assert.match(result.stdout, /workflow executed/);
+  const artifact = JSON.parse(await readFile(new URL("../dist/generated/appraise-observational-study.json", import.meta.url), "utf8"));
+  assert.deepEqual(artifact.steps.map(step => step.status), ["completed", "completed", "completed"]);
+  assert.equal(artifact.synthesis.model.decision_status, "conditional");
+});
