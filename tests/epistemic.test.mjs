@@ -102,3 +102,25 @@ test("cross-domain Concepts and second Skill resolve bidirectionally", async () 
   assert.equal(coverage.total_skills, 2);
   assert.equal(coverage.skills_with_unresolved_concepts, 0);
 });
+
+test("skill taxonomy and maturity cover the representative MVP set", async () => {
+  await exec(process.execPath, ["scripts/build-public.mjs"]);
+  const ids = ["critically-appraise-paper", "interpret-effect-estimate", "identify-confounding", "assess-measurement-validity", "choose-statistical-model"];
+  const categories = new Set(["understand", "appraise", "design", "analyze", "synthesize"]);
+  const maturities = new Set(["SKELETON", "BASIC", "EXECUTABLE", "AUDITED"]);
+  for (const id of ids) {
+    const skill = JSON.parse(await readFile(new URL(`../skills/${id}/skill.yaml`, import.meta.url), "utf8"));
+    assert.ok(skill.categories.every(category => categories.has(category)));
+    assert.ok(maturities.has(skill.maturity));
+    assert.ok(skill.maturity !== "EXECUTABLE" || (skill.when_to_use && skill.failure_modes.length && skill.worked_example && skill.limitations.length));
+  }
+  await exec(process.execPath, ["scripts/build-skills.mjs"]);
+  const graph = JSON.parse(await readFile(new URL("../dist/generated/concept-skill-graph.json", import.meta.url), "utf8"));
+  assert.equal(Object.keys(graph.skill_to_concepts).length, 5);
+  assert.equal(new Set(Object.entries(graph.skill_to_concepts).flatMap(([skill, concepts]) => concepts.map(concept => `${skill}:${concept}`))).size, 25);
+  assert.ok(graph.concept_to_skills["statistics.confidence-interval"].includes("choose-statistical-model"));
+  const coverage = JSON.parse(await readFile(new URL("../dist/generated/skill-coverage.json", import.meta.url), "utf8"));
+  assert.equal(coverage.total_skills, 5);
+  assert.equal(coverage.edge_count, 25);
+  assert.deepEqual(coverage.orphan_skills, []);
+});
