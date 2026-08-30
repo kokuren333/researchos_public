@@ -1,0 +1,16 @@
+input:
+  research_question: string
+  exposure: string
+  outcome: string
+  candidate_variables: array
+  study_context: string
+output:
+  variables:
+    classification: [likely-confounder, possible-confounder, mediator, collider, other, unknown]
+    required_fields: [variable, rationale, evidence_basis, uncertainty]
+  missing_information: array
+  assumptions: array
+  overall_assessment: string
+rules:
+  - Separate observed information, assumptions, inference, and unknown.
+  - Do not invent missing information.

@@ -124,3 +124,10 @@ test("skill taxonomy and maturity cover the representative MVP set", async () =>
   assert.equal(coverage.edge_count, 25);
   assert.deepEqual(coverage.orphan_skills, []);
 });
+
+test("identify-confounding execution contract passes a valid fixture", async () => {
+  const result = await exec(process.execPath, ["scripts/validate-skill-execution.mjs"]);
+  assert.match(result.stdout, /valid fixture passed/);
+  const contract = await readFile(new URL("../skills/identify-confounding/execution.yaml", import.meta.url), "utf8");
+  for (const field of ["research_question", "candidate_variables", "missing_information", "assumptions", "overall_assessment", "unknown"]) assert.match(contract, new RegExp(field));
+});
