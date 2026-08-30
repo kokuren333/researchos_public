@@ -1,0 +1,1 @@
+{"research_question":"Estimate the association between exposure and a continuous outcome","outcome":"continuous blood pressure change","data_description":"One observation per participant; no censoring or clustering reported","purpose":"causal estimation","predictors":["exposure","age"]}

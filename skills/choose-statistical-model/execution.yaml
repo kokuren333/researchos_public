@@ -1,0 +1,20 @@
+input:
+  research_question: string
+  outcome: string
+  data_description: string
+  purpose: string
+  optional: [predictors, repeated_measures, clustering, censoring, sample_size]
+output:
+  recommended_model: {family: string, specification: string, rationale: string}
+  alternatives: array
+  assumptions: {required: array, uncertain: array}
+  data_requirements: {satisfied: array, missing: array}
+  diagnostics: {required: array}
+  limitations: array
+  missing_information: array
+  decision_status: [recommended, conditional, insufficient-information]
+rules:
+  - Do not choose a model from outcome type alone.
+  - Distinguish prediction from causal estimation.
+  - Distinguish model selection from variable selection.
+  - Return insufficient-information when essential design information is missing.

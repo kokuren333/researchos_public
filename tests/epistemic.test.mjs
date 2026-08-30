@@ -147,3 +147,10 @@ test("assess-measurement-validity has a distinct executable contract", async () 
   const contract = await readFile(new URL("../skills/assess-measurement-validity/execution.yaml", import.meta.url), "utf8");
   for (const field of ["construct", "operationalization", "measurement_error", "proxy_risk", "population_transport", "missing_information", "unknown"]) assert.match(contract, new RegExp(field));
 });
+
+test("choose-statistical-model returns a conditional structured decision", async () => {
+  const result = await exec(process.execPath, ["scripts/validate-model-skill.mjs"]);
+  assert.match(result.stdout, /execution passed/);
+  const contract = await readFile(new URL("../skills/choose-statistical-model/execution.yaml", import.meta.url), "utf8");
+  for (const field of ["recommended_model", "alternatives", "assumptions", "diagnostics", "missing_information", "decision_status"]) assert.match(contract, new RegExp(field));
+});
