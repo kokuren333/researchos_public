@@ -59,3 +59,11 @@ test("Physics builds as a separate Field with 30 concepts", async () => {
   assert.equal(physicsConcepts.default.core_concepts.length, 30);
   assert.match(await readFile(new URL("../dist/fields/physics/learning-guide/index.html", import.meta.url), "utf8"), /物理学の学び方/);
 });
+
+test("concept pages expose depth beyond a dictionary definition", async () => {
+  await exec(process.execPath, ["scripts/build-public.mjs"]);
+  for (const route of ["concepts/physics/state/index.html", "concepts/sampling-distributions/index.html"]) {
+    const page = await readFile(new URL(`../dist/${route}`, import.meta.url), "utf8");
+    for (const heading of ["直感", "なぜ重要か", "何を説明できるか", "典型例", "主要な誤解", "前提概念", "根拠となる資料"]) assert.match(page, new RegExp(heading));
+  }
+});
