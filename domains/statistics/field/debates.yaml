@@ -1,0 +1,5 @@
+debates:
+  - id: frequentist-vs-bayesian
+    positions: [frequentist, bayesian]
+    question: What should probability mean in statistical inference?
+    status: ongoing

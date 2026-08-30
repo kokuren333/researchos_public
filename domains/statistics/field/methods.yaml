@@ -1,0 +1,6 @@
+methods:
+  - id: randomized-controlled-trial
+    purpose: causal-inference
+    assumptions: [random-assignment]
+    strengths: [high-internal-validity]
+    limitations: [external-validity, ethical-constraints]

@@ -1,0 +1,3 @@
+id: optimization
+name: Optimization
+field_realizations: { statistics: [maximum-likelihood, least-squares] }

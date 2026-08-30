@@ -1,0 +1,7 @@
+big_questions:
+  - id: inference-from-samples
+    question: What can be inferred about a population from a finite sample?
+  - id: uncertainty
+    question: How should inferential uncertainty be quantified?
+  - id: causal-vs-associational
+    question: What can be said about causality from observed association?

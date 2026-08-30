@@ -1,0 +1,4 @@
+relations:
+  - from: statistics
+    to: probability
+    relation: neighbor-field

@@ -1,0 +1,6 @@
+id: statistics
+name: Statistics
+core_question: ["What can be inferred from uncertain observations?"]
+objects_of_study: [data, populations, stochastic-processes, uncertainty]
+epistemic_goal: [description, estimation, prediction, comparison, causal-inference]
+neighbor_fields: [probability, machine-learning, epidemiology, econometrics]

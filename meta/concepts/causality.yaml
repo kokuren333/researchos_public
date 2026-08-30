@@ -1,0 +1,5 @@
+id: causality
+name: Causality
+field_realizations:
+  statistics: [causal-dag, potential-outcomes]
+  epidemiology: [confounding, counterfactual]

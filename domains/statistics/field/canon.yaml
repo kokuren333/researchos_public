@@ -1,0 +1,5 @@
+canon:
+  - id: open-statistics-reference
+    type: textbook
+    title: Public statistics reference metadata placeholder
+    access: { url: null, open_access: unknown, license: null }

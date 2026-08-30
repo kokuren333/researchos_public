@@ -1,0 +1,5 @@
+failure_modes:
+  - id: p-hacking
+    category: methodology
+    description: Selective analysis or reporting exploiting researcher degrees of freedom.
+    severity: high

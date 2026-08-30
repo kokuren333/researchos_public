@@ -1,0 +1,3 @@
+id: uncertainty
+name: Uncertainty
+field_realizations: { statistics: [confidence-interval, posterior-distribution] }

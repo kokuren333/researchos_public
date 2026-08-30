@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ResearchProject",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "status", "research_type", "primary_field", "research_question", "created_at", "updated_at"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "title": { "type": "string", "minLength": 1 },
+    "status": { "type": "string", "enum": ["idea", "literature-review", "protocol", "analysis", "writing", "internal-review", "submitted", "revision", "accepted", "published", "abandoned"] },
+    "research_type": { "type": "string", "enum": ["systematic_review", "scoping_review", "meta_analysis", "replication", "secondary_data_analysis", "simulation", "benchmark", "observational_study", "experimental_study", "methodological_study", "software_research", "theoretical"] },
+    "primary_field": { "type": "string", "minLength": 1 },
+    "related_fields": { "type": "array", "items": { "type": "string" } },
+    "research_question": { "type": "string", "minLength": 1 },
+    "hypotheses": { "type": "array", "items": { "type": "string" } },
+    "related_concepts": { "type": "array", "items": { "type": "string" } },
+    "related_claims": { "type": "array", "items": { "type": "string" } },
+    "methods": { "type": "array", "items": { "type": "string" } },
+    "datasets": { "type": "array", "items": { "type": "string" } },
+    "created_at": { "type": "string" },
+    "updated_at": { "type": "string" }
+  }
+}
