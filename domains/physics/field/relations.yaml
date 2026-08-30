@@ -1,0 +1,7 @@
+relations:
+  - from: physics
+    to: statistics
+    relation: uses-measurement-and-uncertainty
+  - from: physics
+    to: causality
+    relation: studies-dynamics-and-interaction

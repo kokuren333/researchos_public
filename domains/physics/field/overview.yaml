@@ -1,0 +1,6 @@
+id: physics
+name: Physics
+name_ja: 物理学
+core_question: ["状態と変化を少数の原理と数学モデルでどう記述・予測できるか"]
+world_model: "状態・量・相互作用・対称性・保存則を、スケールに応じたモデルで結びつける。"
+neighbor_fields: [mathematics, chemistry, statistics, computer-science]

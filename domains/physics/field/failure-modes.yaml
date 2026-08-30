@@ -1,0 +1,10 @@
+failure_modes:
+  - id: model-equals-reality
+    description: モデルの理想化を現実そのものとみなす
+    severity: high
+  - id: invalid-approximation-regime
+    description: 近似の適用範囲や境界条件を確認しない
+    severity: high
+  - id: dimensional-inconsistency
+    description: 次元の不整合を見逃す
+    severity: high

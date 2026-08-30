@@ -1,0 +1,5 @@
+debates:
+  - id: realism-vs-effective-description
+    positions: [fundamental-realism, effective-description]
+    question: モデルは現実の構造を表すのか、予測の道具なのか
+    status: ongoing

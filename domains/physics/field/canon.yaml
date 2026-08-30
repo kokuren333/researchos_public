@@ -1,0 +1,10 @@
+canon:
+  - id: openstax-university-physics
+    type: textbook
+    title: University Physics Volume 1–3
+    url: https://openstax.org/subjects/science
+    license: CC BY 4.0
+  - id: feynman-lectures
+    type: lecture
+    title: The Feynman Lectures on Physics
+    url: https://www.feynmanlectures.caltech.edu/

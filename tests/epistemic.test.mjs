@@ -49,3 +49,13 @@ test("static build uses Japanese as the default locale and preserves routes", as
   assert.match(field, /30の中核概念/);
   assert.match(field, /lang="ja"/);
 });
+
+test("Physics builds as a separate Field with 30 concepts", async () => {
+  await exec(process.execPath, ["scripts/build-public.mjs"]);
+  const field = await readFile(new URL("../dist/fields/physics/index.html", import.meta.url), "utf8");
+  assert.match(field, /物理学/);
+  assert.match(field, /状態/);
+  const physicsConcepts = await import("../domains/physics/concepts/core-concepts.json", { with: { type: "json" } });
+  assert.equal(physicsConcepts.default.core_concepts.length, 30);
+  assert.match(await readFile(new URL("../dist/fields/physics/learning-guide/index.html", import.meta.url), "utf8"), /物理学の学び方/);
+});

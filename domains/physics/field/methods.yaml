@@ -1,0 +1,13 @@
+methods:
+  - id: mathematical-modeling
+    purpose: 現象の構造を数式で表す
+    strengths: [予測可能性, 圧縮]
+    limitations: [適用範囲, モデル依存性]
+  - id: dimensional-analysis
+    purpose: 次元から関係式を制約する
+    strengths: [高速な整合性検査]
+    limitations: [係数や機構は決まらない]
+  - id: approximation
+    purpose: 支配的な効果を残して単純化する
+    strengths: [解析可能性]
+    limitations: [適用領域外で破綻]
