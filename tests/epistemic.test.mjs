@@ -84,7 +84,21 @@ test("skill metadata resolves a many-to-many Concept graph", async () => {
   const graph = JSON.parse(await readFile(new URL("../dist/generated/concept-skill-graph.json", import.meta.url), "utf8"));
   assert.equal(skill.type, "skill");
   assert.ok(skill.purpose && skill.inputs && skill.steps.length && skill.checks.length && skill.outputs);
-  assert.equal(graph.skill_to_concepts[skill.id].length, 5);
-  for (const concept of skill.requires.concepts) assert.deepEqual(graph.concept_to_skills[concept], [skill.id]);
+  assert.equal(graph.skill_to_concepts[skill.id].length, 7);
+  for (const concept of skill.requires.concepts) assert.ok(graph.concept_to_skills[concept].includes(skill.id));
   assert.match(await readFile(new URL("../dist/skills/critically-appraise-paper/index.html", import.meta.url), "utf8"), /研究論文を批判的に評価する/);
+});
+
+test("cross-domain Concepts and second Skill resolve bidirectionally", async () => {
+  await exec(process.execPath, ["scripts/build-public.mjs"]);
+  const graph = JSON.parse(await readFile(new URL("../dist/generated/concept-skill-graph.json", import.meta.url), "utf8"));
+  assert.ok(graph.concept_to_skills["measurement.validity"].includes("critically-appraise-paper"));
+  assert.ok(graph.concept_to_skills["measurement.validity"].includes("interpret-effect-estimate"));
+  assert.ok(graph.concept_to_skills["causal-inference.confounding"].includes("critically-appraise-paper"));
+  assert.equal(graph.skill_to_concepts["interpret-effect-estimate"].length, 5);
+  assert.match(await readFile(new URL("../dist/concepts/measurement.validity/index.html", import.meta.url), "utf8"), /Used by Skills/);
+  assert.match(await readFile(new URL("../dist/skills/interpret-effect-estimate/index.html", import.meta.url), "utf8"), /効果推定値を解釈する/);
+  const coverage = JSON.parse(await readFile(new URL("../dist/generated/concept-skill-coverage.json", import.meta.url), "utf8"));
+  assert.equal(coverage.total_skills, 2);
+  assert.equal(coverage.skills_with_unresolved_concepts, 0);
 });
