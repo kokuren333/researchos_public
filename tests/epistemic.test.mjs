@@ -140,3 +140,10 @@ test("identify-confounding audit fixtures cover clear, ambiguous, and insufficie
     assert.ok(fixture.study_context);
   }
 });
+
+test("assess-measurement-validity has a distinct executable contract", async () => {
+  const result = await exec(process.execPath, ["scripts/validate-measurement-skill.mjs"]);
+  assert.match(result.stdout, /execution passed/);
+  const contract = await readFile(new URL("../skills/assess-measurement-validity/execution.yaml", import.meta.url), "utf8");
+  for (const field of ["construct", "operationalization", "measurement_error", "proxy_risk", "population_transport", "missing_information", "unknown"]) assert.match(contract, new RegExp(field));
+});

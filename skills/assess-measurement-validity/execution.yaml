@@ -1,0 +1,24 @@
+input:
+  construct: string
+  operationalization: string
+  instrument: optional string
+  population: optional string
+  context: optional string
+  reference_standard: optional string
+  reported_evidence: optional string
+output:
+  assessment:
+    construct_validity: {status: [supported, partially-supported, threatened, unknown]}
+    content_validity: {status: [supported, partially-supported, threatened, not-applicable, unknown]}
+    criterion_validity: {status: [supported, partially-supported, threatened, not-assessable, unknown]}
+  measurement_error: object
+  proxy_risk: object
+  population_transport: object
+  missing_information: array
+  assumptions: array
+  overall_assessment: string
+rules:
+  - Keep construct distinct from its measurement or proxy.
+  - Reliability alone is not validity evidence.
+  - Missing validation evidence remains unknown.
+  - Separate reported information, inference, judgment, and unknown.
