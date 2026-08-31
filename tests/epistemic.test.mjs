@@ -192,3 +192,10 @@ test("concept browser builds six fields and 180 detail pages", async () => {
   }
   assert.match(await readFile(new URL("../dist/concepts/measurement/validity/index.html", import.meta.url), "utf8"), /MAPPED|DEEPENED/);
 });
+
+test("concept quality audit passes the validity gold content", async () => {
+  const result = await exec(process.execPath, ["scripts/audit-concept-quality.mjs"]);
+  assert.match(result.stdout, /pass/);
+  const audit = JSON.parse(await readFile(new URL("../dist/generated/concept-quality-audit.json", import.meta.url), "utf8"));
+  assert.equal(audit.verdict, "pass");
+});
