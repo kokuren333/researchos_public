@@ -175,3 +175,20 @@ test("workflow runtime resolves fixture inputs and stores step outputs", async (
   assert.equal(execution.validation.provenance_recorded, true);
   assert.equal(execution.steps[2].inputs_from.measurement_information, "measurement.output");
 });
+
+test("concept corpus has six domains with thirty globally scoped IDs", async () => {
+  const result = await exec(process.execPath, ["scripts/validate-concept-corpus.mjs"]);
+  assert.match(result.stdout, /6 domains, 180 concepts/);
+});
+
+test("concept browser builds six fields and 180 detail pages", async () => {
+  await exec(process.execPath, ["scripts/build-public.mjs"]);
+  await exec(process.execPath, ["scripts/build-skills.mjs"]);
+  await exec(process.execPath, ["scripts/build-concept-browser.mjs"]);
+  const coverage = JSON.parse(await readFile(new URL("../dist/generated/concept-coverage.json", import.meta.url), "utf8"));
+  assert.equal(coverage.total_concepts, 180);
+  for (const domain of ["epistemology", "measurement", "statistics", "causal-inference", "research-design", "metascience"]) {
+    assert.match(await readFile(new URL(`../dist/fields/${domain}/index.html`, import.meta.url), "utf8"), /30 Core Concepts/);
+  }
+  assert.match(await readFile(new URL("../dist/concepts/measurement/validity/index.html", import.meta.url), "utf8"), /MAPPED|DEEPENED/);
+});
