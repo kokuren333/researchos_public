@@ -1,0 +1,11 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const page = await readFile(path.join(root, "dist/concepts/measurement/validity/index.html"), "utf8");
+const required = ["妥当性", "まず何を問う概念なのか", "[1]", "PHQ-9", "GitHub stars", "参考文献", "Status: DRAFT"];
+const forbidden = ["このpriority Conceptは、研究上の観測・推論・判断を接続するための中心概念です。", "Source locator coverageを確認してください。", "Status: DEEPENED"];
+const missing = required.filter((x) => !page.includes(x));
+const presentForbidden = forbidden.filter((x) => page.includes(x));
+if (missing.length || presentForbidden.length) throw new Error(`Validity render regression: missing=${missing.join(",")}; forbidden=${presentForbidden.join(",")}`);
+console.log("validity render regression check: PASS");
