@@ -1,0 +1,30 @@
+{
+  "id": "measurement-validity-packet",
+  "concept_id": "measurement.validity",
+  "sources": ["aera-standards-validity", "cosmin-validity", "nih-measurement-validity"],
+  "evidence": [
+    {"id":"validity-interpretation-evidence","source":"aera-standards-validity","locator":{"type":"chapter","value":"Validity","section":"interpretation and use"},"evidence_role":"definition","supports":["interpretation-centered"],"extracted_meaning":{"ja":"妥当性は測定値から行う解釈と利用を支える証拠の問題として扱う。"},"confidence":"high"},
+    {"id":"validity-content-evidence","source":"cosmin-validity","locator":{"type":"section","value":"content validity","section":"relevance, comprehensiveness, comprehensibility"},"evidence_role":"interpretation","supports":["evidence-is-multidimensional"],"extracted_meaning":{"ja":"内容領域の関連性・網羅性・理解可能性を確認する。"},"confidence":"high"},
+    {"id":"validity-error-context-evidence","source":"nih-measurement-validity","locator":{"type":"section","value":"Validity and measurement error","section":"measurement error and validity"},"evidence_role":"interpretation","supports":["context-and-error-limit-interpretation"],"extracted_meaning":{"ja":"測定誤差と文脈を踏まえ、測定結果から許される解釈を限定する。"},"confidence":"high"}
+  ],
+  "claims": [
+    {"id":"interpretation-centered","claimType":"interpretation","statement":"妥当性は測定器の固定属性ではなく、測定結果から行う解釈・利用を支える証拠に関する。","evidence":["validity-interpretation-evidence"],"status":"established"},
+    {"id":"evidence-is-multidimensional","claimType":"interpretation","statement":"妥当性の証拠は内容、内部構造、他変数との関係など異なる角度から集める。","evidence":["validity-content-evidence","validity-interpretation-evidence"],"status":"strongly_supported"},
+    {"id":"context-and-error-limit-interpretation","claimType":"interpretation","statement":"集団・目的・文脈と測定誤差は、測定結果から許される解釈の範囲を制約する。","evidence":["validity-error-context-evidence","validity-interpretation-evidence"],"status":"strongly_supported"}
+  ],
+  "paragraph_citations": {
+    "definition": {"claim_ids":["interpretation-centered"],"citation_source_ids":["aera-standards-validity"]},
+    "construct": {"claim_ids":["interpretation-centered"],"citation_source_ids":["aera-standards-validity"]},
+    "reliability": {"claim_ids":["context-and-error-limit-interpretation"],"citation_source_ids":["nih-measurement-validity"]},
+    "evidence": {"claim_ids":["evidence-is-multidimensional"],"citation_source_ids":["aera-standards-validity","cosmin-validity"]},
+    "context": {"claim_ids":["context-and-error-limit-interpretation"],"citation_source_ids":["aera-standards-validity"]},
+    "proxy": {"claim_ids":["context-and-error-limit-interpretation"],"citation_source_ids":["aera-standards-validity"]},
+    "error": {"claim_ids":["context-and-error-limit-interpretation"],"citation_source_ids":["nih-measurement-validity"]},
+    "downstream": {"claim_ids":["context-and-error-limit-interpretation"],"citation_source_ids":["nih-measurement-validity"]}
+  },
+  "claim_evidence": [
+    {"claim_id":"interpretation-centered","evidence_ids":["validity-interpretation-evidence"]},
+    {"claim_id":"evidence-is-multidimensional","evidence_ids":["validity-content-evidence","validity-interpretation-evidence"]},
+    {"claim_id":"context-and-error-limit-interpretation","evidence_ids":["validity-error-context-evidence","validity-interpretation-evidence"]}
+  ]
+}

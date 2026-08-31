@@ -1,1 +1,23 @@
-{"id":"measurement.validity","title":"妥当性","definition":"妥当性とは、ある測定値から意図したconstructについて行う解釈や推論が、目的・集団・文脈に照らしてどの程度支持されるかを表す概念である。","intuition":"constructは測りたい理論的対象、operationalizationはそれを観測可能な手続きへ変換する設計、measurementは実際に得た値である。validityは測定器の固定属性ではなく、その値から何を言えるかの問題である。","why":"測定が意図とずれていれば、精密な統計解析も別の対象についての精密な答えになる。reliabilityは一貫性、validityは解釈の支持なので、高信頼でも低妥当性はありうる。","example":"PHQ-9 scoreは抑うつ症状を測る一つの操作化であり、うつ病そのものと同一ではない。診断面接とのcriterion evidence、項目が症状領域を覆うcontent evidence、他概念との関係を示すconstruct evidenceを、対象集団と用途に即して読む。","misuse":"Cronbach alphaが高い、結果と相関する、統計的に有意である、というだけでvalidityが証明されたとは言えない。instrumentとconstruct、associationとvalidity evidenceを混同しない。","limits":"妥当性はpopulation・言語・文化・目的・測定時点に依存する。他集団のvalidationを現在の集団へ無条件に移せない。reference standardがない場合やproxyを使う場合は、結論をunknownまたはpartialに留める。","practice":"研究計画ではconstructと操作化を明示し、論文では測定手順、対象集団、validation study、reference standard、欠測・誤分類を確認する。結果を解釈するときは、測定値から許される主張の範囲を限定する。","prerequisites":["measurement.construct","measurement.operationalization","measurement.reliability"],"related":["measurement.measurement-error","measurement.proxy","measurement.reference-standard"],"source":"https://www.ncbi.nlm.nih.gov/books/NBK305233","locator":"Validity and measurement error sections"}
+{
+  "id":"measurement.validity","title":"妥当性",
+  "definition":"妥当性とは、測定値から意図した構成概念（construct）について行う解釈・推論・利用が、目的・対象集団・文脈に照らしてどの程度支持されるかを問う概念である。測定器に永久に付着した二値属性ではなく、score・interpretation・useの組に関する判断である。",
+  "intuition":"研究者が知りたいconstructは直接観測できないことが多い。constructを操作化（operationalization）して質問項目や手続きに変換し、measurementとして値を得る。その値から「この人の抑うつ症状は強い」「このソフトウェアは高品質だ」と解釈するとき、妥当性はその解釈が何によって支持され、どこから先は言えないかを問う。",
+  "why":"poor operationalizationは後段の統計で修復できない。回帰係数の標準誤差が小さくても、誤ったconstructを精密に測っただけかもしれない。妥当性評価はデータ分析の前提を点検し、測定値から許される主張の範囲を制御する。",
+  "example":"PHQ-9では、constructは抑うつ症状、operationalizationは質問項目と採点規則、measurementは回答から得たscore、interpretationはscoreから症状の程度や臨床的状態について行う主張である。項目が症状領域を覆うか、内部構造が想定と整合するか、診断面接など外部基準との関係が妥当かを、対象集団と用途に即して読む。診断面接との一致があっても、scoreがあらゆる集団で同じ意味を持つとは限らない。",
+  "misuse":"reliabilityが高い、別のoutcomeと相関する、統計的に有意である、Cronbach alphaが高い、という単一の事実だけでvalidityを証明したとは言えない。instrumentとconstruct、scoreとinterpretation、associationとvalidity evidenceを混同しない。",
+  "limits":"妥当性はpopulation、言語、文化、年齢、目的、測定時点に依存する。reference standard自体にも誤分類や測定誤差がありうるため、一致率を妥当性そのものと同一視できない。複数の証拠が食い違うなら、解釈をpartialまたはunknownに留め、construct・用途・誤差を再点検する。",
+  "practice":"研究計画ではconstruct、操作化、観測値、許されるinterpretationを分けて書く。論文では、対象集団、測定手順、項目内容、internal structure、近い概念・遠い概念・criterionとの関係、validation study、欠測、誤分類、別集団へのtransport evidenceを確認する。",
+  "prerequisites":["measurement.construct","measurement.operationalization","measurement.reliability"],
+  "related":["measurement.measurement-error","measurement.proxy","measurement.reference-standard"],
+  "source":"https://www.ncbi.nlm.nih.gov/books/NBK305233/","locator":"Validity and measurement error sections",
+  "sources":["aera-standards-validity","cosmin-validity","nih-measurement-validity"],
+  "longform":{
+    "reliability":"毎回5kg重く表示する体重計は、同じ条件で同じ値を返すならtest-retest reliability（再検査信頼性）は高い。しかし絶対体重を知る用途ではsystematic error（系統誤差）のためvalidityに問題がある。順位だけを使う用途なら一定のずれの影響は異なる。random error（偶然誤差）は繰り返しで値を散らすが、systematic errorは一貫して同じ方向へずらす。repeatabilityが高いことは、意図したconstructを正しく解釈できることを保証しない。",
+    "evidence":"妥当性の証拠は、content-related evidence（項目が測るべき内容領域を十分に覆うか）、internal structure（項目・下位尺度の関係が想定constructと整合するか）、relations to other variables（近い概念とは関連し、異なる概念とは過度に重ならないか）、criterion-related evidence（適切な外部基準と対応するか）を異なる角度から調べる。これは4種類のvalidityを別々に証明する箱ではなく、同じ解釈を支える材料である。contentが十分でもinternal structureが崩れることはあり、criterionが弱いときは基準自体の不完全さ、集団差、誤差、constructの定義を再点検する。",
+    "reference":"reference standard（参照基準）がある場合も、それを完全なgold standardと仮定してはいけない。診断面接や既存尺度にも判断者差、誤分類、測定誤差がありうる。基準がないconstructでは、内容、内部構造、他変数との理論的関係、専門家判断、縦断的予測などを組み合わせ、一つの一致率ではなく解釈全体の支持を評価する。",
+    "context":"別言語・別文化・別年齢層・別用途へ尺度を移すときは、翻訳だけでなくitem meaning（項目の意味）、response behavior（回答傾向）、measurement invariance（測定不変性）、threshold、criterionとの関係を再検討する。元のvalidationが支持したのは元の集団と目的での解釈であり、すべての集団へのtransportではない。",
+    "proxy":"GitHub starsをOSS qualityのproxyにするなら、constructはOSS quality、operationalizationはstar countを指標にする規則、measurementは観測されたstar数である。OSS qualityはcorrectness、reliability、maintainability、documentation、usability、security、community healthなど複数次元を含みうる。star数はvisibility、人気、採用・関心の一部を拾いやすいが、correctnessやmaintainabilityを直接測らない。プロジェクト年齢、宣伝、組織の知名度、community sizeもstar数を押し上げるため、「starsが多いから高品質」という解釈には別のevidenceが必要である。",
+    "error":"measurement errorはvalidityと同義ではない。random errorは値のばらつきを増やし、systematic errorは一方向のずれを作る。misclassification（誤分類）は二値のexposure・outcome・confounderを取り違える問題で、誤差が群によって異なるdifferential errorでは推定の偏り方を単純に予測できない。non-differential errorでも情報を失い、effect estimateや因果解釈を弱めうる。測定誤差があるときは、観測値からどの主張まで許されるかを狭める。",
+    "downstream":"constructの曖昧さや測定誤差は、measurementからobserved variable、effect estimate、statistical・causal interpretationへ伝播する。exposureの誤測定は効果推定を歪め、outcomeの誤分類は群間差を見えにくくし、confounderの不十分な測定は残余交絡を残す。精密な推定値は、正しいconstructを測った証拠ではない。"
+  }
+}

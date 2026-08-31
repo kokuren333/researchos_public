@@ -1,0 +1,13 @@
+import { readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const file = path.join(root, "dist/concepts/measurement/validity/index.html");
+const packet = JSON.parse(await readFile(path.join(root, "domains/measurement/evidence/measurement-validity.packet.json"), "utf8"));
+const registry = JSON.parse(await readFile(path.join(root, "domains/measurement/sources/sources.json"), "utf8"));
+const esc = (s) => String(s).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+const sources = packet.sources.map((id) => registry.find((s) => s.id === id)).filter(Boolean).map((s) => `<li><a href="${s.url}">${esc(s.title)}</a> — ${esc(s.locator)}</li>`).join("");
+let html = await readFile(file, "utf8");
+html = html.replace(/<h2>Sources \/ Evidence<\/h2><p>.*?<\/p>/, `<h2>Sources / Evidence</h2><ul>${sources}</ul>`);
+await writeFile(file, html);
+console.log("rendered packet sources");
