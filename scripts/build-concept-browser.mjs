@@ -97,6 +97,7 @@ for (const map of maps) {
     body: `<h1>${labels[map.domain]}</h1><p>Research OSの${labels[map.domain]} Concept map。</p><p>30 core concepts · deepened: ${items.filter((x) => x.status === "deepened").length} · mapped: ${items.filter((x) => x.status === "mapped").length}</p><h2>30 Core Concepts</h2><ol>${list}</ol><h2>Priority Concepts</h2><p>${priority[map.domain].join(", ") || "既存の深掘りデータを再利用"}</p>`,
   });
   for (const c of items) {
+    if (map.domain === "epistemology") continue;
     const used = skills.concept_to_skills?.[c.global] ?? [];
     const deep = c.status === "deepened";
     await write(`concepts/${c.domain}/${c.id}/index.html`, {
