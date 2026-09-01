@@ -155,6 +155,25 @@ test("choose-statistical-model returns a conditional structured decision", async
   for (const field of ["recommended_model", "alternatives", "assumptions", "diagnostics", "missing_information", "decision_status"]) assert.match(contract, new RegExp(field));
 });
 
+test("canonical research skill render survives the skill build path", async () => {
+  await exec(process.execPath, ["scripts/build-skills.mjs"]);
+  const page = await readFile(new URL("../dist/skills/choose-statistical-model/index.html", import.meta.url), "utf8");
+  assert.match(page, /Research Skill/);
+  assert.match(page, /判断分岐/);
+  assert.match(page, /必須チェック/);
+  assert.match(page, /入力/);
+  assert.match(page, /出力/);
+  assert.match(page, /exchangeability/);
+  assert.match(page, /prediction horizon/);
+  assert.match(page, /data leakage/);
+  assert.match(page, /mixed model/);
+  assert.match(page, /GEE/);
+  assert.match(page, /\/concepts\/statistics\/data-generating-process\//);
+  assert.doesNotMatch(page, /\[object Object\]/);
+  assert.equal((page.match(/check-causal-identification/g) ?? []).length, 1);
+  assert.equal((page.match(/align-estimand-and-parameterization/g) ?? []).length, 1);
+});
+
 test("workflow contract preserves ordered steps and output mappings", async () => {
   const result = await exec(process.execPath, ["scripts/validate-workflow.mjs"]);
   assert.match(result.stdout, /workflow passed/);
