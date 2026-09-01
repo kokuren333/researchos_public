@@ -44,6 +44,7 @@ test("ResearchProject lifecycle requires protocol before analysis/results", asyn
 
 test("static build uses Japanese as the default locale and preserves routes", async () => {
   await exec(process.execPath, ["scripts/build-public.mjs"]);
+  await exec(process.execPath, ["scripts/build-skills.mjs"]);
   const field = await readFile(new URL("../dist/fields/statistics/index.html", import.meta.url), "utf8");
   assert.match(field, /統計学/);
   assert.match(field, /30の中核概念/);
@@ -52,6 +53,7 @@ test("static build uses Japanese as the default locale and preserves routes", as
 
 test("Physics builds as a separate Field with 30 concepts", async () => {
   await exec(process.execPath, ["scripts/build-public.mjs"]);
+  await exec(process.execPath, ["scripts/build-skills.mjs"]);
   const field = await readFile(new URL("../dist/fields/physics/index.html", import.meta.url), "utf8");
   assert.match(field, /物理学/);
   assert.match(field, /状態/);
@@ -80,6 +82,7 @@ test("priority concepts are FIELD_VIEW_READY with locator-backed records", async
 
 test("skill metadata resolves a many-to-many Concept graph", async () => {
   await exec(process.execPath, ["scripts/build-public.mjs"]);
+  await exec(process.execPath, ["scripts/build-skills.mjs"]);
   const skill = JSON.parse(await readFile(new URL("../skills/critically-appraise-paper/skill.yaml", import.meta.url), "utf8"));
   const graph = JSON.parse(await readFile(new URL("../dist/generated/concept-skill-graph.json", import.meta.url), "utf8"));
   assert.equal(skill.type, "skill");
@@ -91,6 +94,7 @@ test("skill metadata resolves a many-to-many Concept graph", async () => {
 
 test("cross-domain Concepts and second Skill resolve bidirectionally", async () => {
   await exec(process.execPath, ["scripts/build-public.mjs"]);
+  await exec(process.execPath, ["scripts/build-skills.mjs"]);
   const graph = JSON.parse(await readFile(new URL("../dist/generated/concept-skill-graph.json", import.meta.url), "utf8"));
   assert.ok(graph.concept_to_skills["measurement.validity"].includes("critically-appraise-paper"));
   assert.ok(graph.concept_to_skills["measurement.validity"].includes("interpret-effect-estimate"));
