@@ -1,0 +1,122 @@
+[
+  {
+    "id": "iep-evidence",
+    "title": "Evidence",
+    "url": "https://iep.utm.edu/evidence/",
+    "type": "authoritative-reference",
+    "locator": "overview and sections on justification",
+    "extracted_support": "Evidence is discussed as a relation between a claim or hypothesis and information that bears on its justification; its force depends on relevance, alternatives, and background assumptions."
+  },
+  {
+    "id": "sep-observation",
+    "title": "Theory and Observation in Science",
+    "url": "https://plato.stanford.edu/entries/science-theory-observation/",
+    "type": "reference-article",
+    "locator": "overview and observation reports",
+    "extracted_support": "Scientific observation is treated as shaped by instruments, concepts, experimental practice, and the distinction between observation reports and theoretical interpretation."
+  },
+  {
+    "id": "iep-induction",
+    "title": "Confirmation and Induction",
+    "url": "https://iep.utm.edu/confirmation-and-induction/",
+    "type": "authoritative-reference",
+    "locator": "confirmation and problem of induction",
+    "extracted_support": "Inductive reasoning extends beyond observed cases and therefore does not make its conclusion necessary; the problem of induction concerns how such extension is justified."
+  },
+  {
+    "id": "sep-argument",
+    "title": "Argument and Argumentation",
+    "url": "https://plato.stanford.edu/entries/argument/",
+    "type": "reference-article",
+    "locator": "deduction, induction, and abduction",
+    "extracted_support": "Deductive, inductive, and abductive arguments differ in the relation between premises and conclusion; abduction concerns explanatory hypotheses and induction extends beyond the premises."
+  },
+  {
+    "id": "sep-popper",
+    "title": "Karl Popper",
+    "url": "https://plato.stanford.edu/entries/popper/",
+    "type": "reference-article",
+    "locator": "falsifiability and demarcation",
+    "extracted_support": "Falsifiability concerns whether a theory exposes itself to possible empirical failure and is distinct from the fact that a theory has actually been falsified."
+  },
+  {
+    "id": "sep-evidence",
+    "title": "Evidence",
+    "url": "https://plato.stanford.edu/entries/evidence/",
+    "type": "reference-article",
+    "locator": "evidence and hypothesis testing",
+    "extracted_support": "Evidence is examined in relation to hypotheses, confirmation, and the distinction between support for a claim and certainty that the claim is true."
+  },
+  {
+    "id": "sep-belief",
+    "title": "Belief",
+    "url": "https://plato.stanford.edu/entries/belief/",
+    "type": "reference-article",
+    "locator": "propositional attitude and nature of belief",
+    "extracted_support": "Belief is characterized as an affirmative propositional attitude toward a proposition or state of affairs."
+  },
+  {
+    "id": "sep-epistemology",
+    "title": "Epistemology",
+    "url": "https://plato.stanford.edu/entries/epistemology/",
+    "type": "reference-article",
+    "locator": "knowledge, justification, and epistemic concepts",
+    "extracted_support": "Epistemology studies knowledge and related concepts; knowledge claims and their justification have multiple competing analyses."
+  },
+  {
+    "id": "sep-logical-consequence",
+    "title": "Logical Consequence",
+    "url": "https://plato.stanford.edu/entries/logical-consequence/",
+    "type": "reference-article",
+    "locator": "logical consequence and validity",
+    "extracted_support": "Logical consequence concerns what follows from premises by virtue of logical form or meaning, distinguishing consequence from truth of the premises."
+  },
+  {
+    "id": "sep-induction-problem",
+    "title": "The Problem of Induction",
+    "url": "https://plato.stanford.edu/entries/induction-problem/",
+    "type": "reference-article",
+    "locator": "problem of induction and observed/unobserved generalization",
+    "extracted_support": "The problem of induction concerns the justification of extending claims from observed cases to unobserved cases and future cases."
+  },
+  {
+    "id": "sep-abduction",
+    "title": "Abduction",
+    "url": "https://plato.stanford.edu/archives/spr2024/entries/abduction/",
+    "type": "reference-article",
+    "locator": "modern abduction and supplement on historical Peircean abduction",
+    "extracted_support": "Abduction has a modern inference-to-the-best-explanation sense and a distinct historical Peircean sense concerning explanatory hypothesis formation."
+  },
+  {
+    "id": "sep-pseudo-science",
+    "title": "Science and Pseudo-Science",
+    "url": "https://plato.stanford.edu/entries/pseudo-science/",
+    "type": "reference-article",
+    "locator": "Popper, falsifiability, and demarcation",
+    "extracted_support": "Popper proposed falsifiability as a demarcation criterion; historical and methodological qualifications distinguish logical testability from simple rejection."
+  },
+  {
+    "id": "sep-knowledge-analysis",
+    "title": "The Analysis of Knowledge",
+    "url": "https://plato.stanford.edu/entries/knowledge-analysis/",
+    "type": "reference-article",
+    "locator": "JTB, Gettier cases, epistemic luck, and competing analyses",
+    "extracted_support": "The analysis of propositional knowledge examines truth, belief, justification, Gettier cases, epistemic luck, and competing conditions; no single analysis is widely accepted."
+  },
+  {
+    "id": "nist-measurement-uncertainty",
+    "title": "Guidelines for Evaluating and Expressing the Uncertainty of NIST Measurement Results",
+    "url": "https://www.nist.gov/document/tn1297spdf",
+    "type": "measurement-standard",
+    "locator": "Sections 1.2, 2, and 5 on measurement uncertainty and uncertainty components",
+    "extracted_support": "Measurement uncertainty is evaluated and expressed from available information about the measurement process; components and their treatment depend on how the measured quantity is used in a model."
+  },
+  {
+    "id": "ncbi-environmental-uncertainty",
+    "title": "Environmental Decisions in the Face of Uncertainty",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK200850/",
+    "type": "authoritative-report",
+    "locator": "Introduction: statistical variability/heterogeneity and model/parameter uncertainty",
+    "extracted_support": "The report distinguishes statistical variability and heterogeneity from model and parameter uncertainty as a context-dependent framework."
+  }
+]

@@ -1,0 +1,281 @@
+[
+  {
+    "id": "evidence",
+    "title": {
+      "ja": "証拠",
+      "en": "Evidence"
+    },
+    "definition": "証拠とは、ある主張の受容・棄却・保留を理由づける情報であり、その関連性と出所を追跡できるものだ。",
+    "intuition": "同じデータでも、どの仮説に対してどの方向の情報を与えるかで証拠としての役割は変わる。",
+    "why_it_matters": "引用や観測を主張と混同せず、何がどこまで結論を支えるかを限定できる。",
+    "example": "臨床研究の結果表は治療効果の推定を支えるが、研究対象外の集団への効果までは直接支えない。",
+    "confusions": "情報量が多いことや引用が付いていることだけでは、主張を支持する証拠にはならない。",
+    "limits": "証拠は通常、主張を論理的に確定せず、仮定・測定・代替説明に依存する。",
+    "prerequisites": [],
+    "related": [
+      "claim",
+      "inference",
+      "uncertainty"
+    ],
+    "sources": [
+      {
+        "source_id": "iep-evidence",
+        "locator": "overview and sections on justification"
+      }
+    ],
+    "skills": []
+  },
+  {
+    "id": "belief",
+    "title": {
+      "ja": "信念",
+      "en": "Belief"
+    },
+    "definition": "信念とは、ある命題を真として受け入れる心的・認知的な状態である。",
+    "intuition": "人は情報を受け取るだけでなく、命題への確信の強さや行動上のコミットメントを形成する。",
+    "why_it_matters": "信念と知識、仮説、証拠を区別すると、確信の強さと正当化の根拠を別々に検討できる。",
+    "example": "同じ観測を見ても、背景知識の違いにより二人の仮説への確信が異なる。",
+    "confusions": "信じていることは真であることや、十分に正当化されていることを意味しない。",
+    "limits": "信念の心理的記述だけでは、その信念が合理的・真であるかを決められない。",
+    "prerequisites": [],
+    "related": [
+      "knowledge",
+      "uncertainty",
+      "claim",
+      "evidence"
+    ],
+    "sources": [
+      {
+        "source_id": "iep-evidence",
+        "locator": "evidence and justified belief"
+      }
+    ],
+    "skills": []
+  },
+  {
+    "id": "knowledge",
+    "title": {
+      "ja": "知識",
+      "en": "Knowledge"
+    },
+    "definition": "知識とは、単なる信念や真らしさではなく、真理・正当化・認識主体の条件を含めて検討される認識状態である。",
+    "intuition": "正しい答えを偶然当てた場合と、理由をもって到達した場合は同じではない。",
+    "why_it_matters": "研究で得た結果を、観測された事実・推論・確定的知識として過大評価しないために必要だ。",
+    "example": "予測が偶然当たったことは、予測方法が信頼できる知識を生んだことを直ちには示さない。",
+    "confusions": "真であること、確信していること、証拠があることは知識と同一ではない。",
+    "limits": "知識の定義は認識論上争われており、実務では確信度と根拠を明示する方が安全な場合がある。",
+    "prerequisites": [
+      "belief",
+      "evidence"
+    ],
+    "related": [
+      "uncertainty",
+      "inference"
+    ],
+    "sources": [
+      {
+        "source_id": "iep-evidence",
+        "locator": "evidence and justified belief"
+      }
+    ],
+    "skills": []
+  },
+  {
+    "id": "uncertainty",
+    "title": {
+      "ja": "不確実性",
+      "en": "Uncertainty"
+    },
+    "definition": "不確実性とは、情報・測定・モデル・推論の限界によって複数の可能性が残る状態である。",
+    "intuition": "不確実性は知識の欠如だけでなく、結論がどの仮定に依存するかを示す情報でもある。",
+    "why_it_matters": "不明なことを既知として埋めず、追加データや感度分析が何を変えるかを示せる。",
+    "example": "推定値の標準誤差だけでなく、未測定交絡や測定誤差も結論の不確実性になる。",
+    "confusions": "数値の精密さは、モデルや測定の妥当性を保証しない。",
+    "limits": "すべての不確実性を一つの確率や区間に還元できるとは限らない。",
+    "prerequisites": [
+      "evidence"
+    ],
+    "related": [
+      "belief",
+      "inference"
+    ],
+    "sources": [
+      {
+        "source_id": "iep-evidence",
+        "locator": "evidence and justification"
+      }
+    ],
+    "skills": []
+  },
+  {
+    "id": "observation",
+    "title": {
+      "ja": "観察",
+      "en": "Observation"
+    },
+    "definition": "観察とは、測定・記録・知覚を通じて対象について得られる経験的情報である。",
+    "intuition": "観察記録は対象そのものではなく、装置・概念・手順を通したアクセスの結果である。",
+    "why_it_matters": "観察報告と理論解釈を分け、何が直接記録され何が推論されたかを確認できる。",
+    "example": "センサーの数値は観察記録だが、それを特定の物理量や状態と解釈するには校正とモデルが要る。",
+    "confusions": "観察は理論から完全に独立した透明な写像ではない。",
+    "limits": "観察だけでは因果方向や未観測過程を一意に決められない。",
+    "prerequisites": [
+      "evidence"
+    ],
+    "related": [
+      "inference",
+      "model"
+    ],
+    "sources": [
+      {
+        "source_id": "sep-observation",
+        "locator": "overview and observation reports"
+      }
+    ],
+    "skills": []
+  },
+  {
+    "id": "inference",
+    "title": {
+      "ja": "推論",
+      "en": "Inference"
+    },
+    "definition": "推論とは、前提となる情報から、ある結論・予測・説明の支持度を導く過程である。",
+    "intuition": "データは結論を自動的に語らず、前提と推論規則を通じて意味を持つ。",
+    "why_it_matters": "観測された事実、仮定、導かれた結論を分解して、推論の飛躍を発見できる。",
+    "example": "標本の結果から母集団へ一般化するには、標本抽出と安定性に関する仮定が必要になる。",
+    "confusions": "推論は必ず演繹ではなく、帰納・最良説明への推論など確率的な形も持つ。",
+    "limits": "推論の妥当性は前提の真偽と適用範囲に依存する。",
+    "prerequisites": [
+      "evidence",
+      "observation"
+    ],
+    "related": [
+      "deduction",
+      "induction",
+      "abduction"
+    ],
+    "sources": [
+      {
+        "source_id": "sep-argument",
+        "locator": "deduction, induction, and abduction"
+      }
+    ],
+    "skills": []
+  },
+  {
+    "id": "deduction",
+    "title": {
+      "ja": "演繹",
+      "en": "Deduction"
+    },
+    "definition": "演繹とは、前提が真で推論形式が妥当なら、結論も必ず真になるような推論である。",
+    "intuition": "演繹は新しい経験的事実を保証するというより、前提に含まれる帰結を明示する。",
+    "why_it_matters": "定義・論理・モデルから何が必ず従うかを、経験的にもっともらしい推測と区別できる。",
+    "example": "すべての測定値が範囲内にあるという前提と個別値の条件から、許される結論を導く。",
+    "confusions": "妥当な形式でも前提が現実に真であるとは限らない。",
+    "limits": "現実についての確率的推論や前提自体の正当化は、演繹だけでは扱わない。",
+    "prerequisites": [
+      "inference"
+    ],
+    "related": [
+      "induction",
+      "abduction"
+    ],
+    "sources": [
+      {
+        "source_id": "sep-argument",
+        "locator": "deduction"
+      }
+    ],
+    "skills": []
+  },
+  {
+    "id": "induction",
+    "title": {
+      "ja": "帰納",
+      "en": "Induction"
+    },
+    "definition": "帰納とは、観察された事例やデータから、まだ観察していない事例や一般的パターンへ推論を広げることである。",
+    "intuition": "帰納は経験を拡張するが、前提が真でも結論を必ず真にはしない。",
+    "why_it_matters": "標本から母集団へ、過去の観測から将来へ一般化する際の根拠と限界を明示できる。",
+    "example": "複数回の測定で同じ傾向が観察されても、別の条件で同じ傾向が続くには追加仮定が要る。",
+    "confusions": "事例数を増やすだけで一般化が確定するわけではなく、選択された事例の偏りも問題になる。",
+    "limits": "帰納の正当化や将来への適用範囲は、観測設計と背景仮定に依存する。",
+    "prerequisites": [
+      "inference",
+      "observation"
+    ],
+    "related": [
+      "deduction",
+      "abduction",
+      "uncertainty"
+    ],
+    "sources": [
+      {
+        "source_id": "iep-induction",
+        "locator": "confirmation and problem of induction"
+      }
+    ],
+    "skills": []
+  },
+  {
+    "id": "abduction",
+    "title": {
+      "ja": "アブダクション（最良説明への推論）",
+      "en": "Abduction"
+    },
+    "definition": "アブダクションとは、観察された事実を最もよく説明する仮説を比較して採用する推論である。",
+    "intuition": "すでに起きた現象から、どの仕組みならそれを説明できるかを逆向きに考える。",
+    "why_it_matters": "研究仮説の形成と競合する説明の比較を、演繹的確実性や単純な一般化と区別できる。",
+    "example": "異常な測定パターンを、装置故障・選択 bias・新しい機序の候補で比較し、追加観測を設計する。",
+    "confusions": "最も説明的に見える仮説が真であることや、証拠が一意に決めることを意味しない。",
+    "limits": "説明の良さの基準は背景知識・単純性・予測力などに依存し、複数仮説が残りうる。",
+    "prerequisites": [
+      "inference",
+      "observation"
+    ],
+    "related": [
+      "induction",
+      "model",
+      "explanation"
+    ],
+    "sources": [
+      {
+        "source_id": "sep-argument",
+        "locator": "abduction and inference to the best explanation"
+      }
+    ],
+    "skills": []
+  },
+  {
+    "id": "falsifiability",
+    "title": {
+      "ja": "反証可能性",
+      "en": "Falsifiability"
+    },
+    "definition": "反証可能性とは、ある主張や理論が、想定される観察によって経験的に失敗しうる構造を持つことである。",
+    "intuition": "何が起きても説明できる主張は、支持されたように見えても厳しいテストにさらされていない。",
+    "why_it_matters": "理論がどの観測を禁じ、失敗時にどの主張を再検討するかを明示できる。",
+    "example": "特定条件で数値範囲を予測する理論は、範囲外の再現可能な観測によって問題を露呈しうる。",
+    "confusions": "一つの反例が直ちに理論全体を論理的・実務的に破壊するとは限らず、補助仮定や測定誤差も点検が要る。",
+    "limits": "反証可能性だけで理論の真理・有用性・科学性の全てを判定できるわけではない。",
+    "prerequisites": [
+      "evidence",
+      "observation",
+      "inference"
+    ],
+    "related": [
+      "claim",
+      "model",
+      "uncertainty"
+    ],
+    "sources": [
+      {
+        "source_id": "sep-popper",
+        "locator": "falsifiability and demarcation"
+      }
+    ],
+    "skills": []
+  }
+]
